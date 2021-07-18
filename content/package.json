@@ -21,7 +21,7 @@
     "update-packages": "npx npm-check -u"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "core-js": "^2.5.3",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
