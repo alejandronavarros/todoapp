@@ -39,3 +39,4 @@ C:\Users\aleja\Documents\practicasexternas\todoapp\backend\obj\Debug\netcoreapp3
 C:\Users\aleja\Documents\practicasexternas\todoapp\backend\obj\Debug\netcoreapp3.1\backend.dll
 C:\Users\aleja\Documents\practicasexternas\todoapp\backend\obj\Debug\netcoreapp3.1\backend.pdb
 C:\Users\aleja\Documents\practicasexternas\todoapp\backend\obj\Debug\netcoreapp3.1\backend.genruntimeconfig.cache
+C:\Users\aleja\Documents\practicasexternas\todoapp\backend\bin\Debug\netcoreapp3.1\package-lock.json
