@@ -13,6 +13,9 @@
         "packagesPath": "C:\\Users\\aleja\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\aleja\\Documents\\practicasexternas\\todoapp\\backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\aleja\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
