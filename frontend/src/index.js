@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '../store'
-import Dashboard from '../components/Dashboard'
+//import store from '../store'
+import Dashboard from './components/Dashboard'
 import Auth from '@okta/okta-vue'
 
 Vue.use(Router)
@@ -9,7 +9,7 @@ Vue.use(Router)
 Vue.use(Auth, {
   issuer: 'https://dev-97100115.okta.com/oauth2/default',
   client_id: '0oa1a54qw9rZaGgvE5d7',
-  redirect_uri: 'http://localhost:5000/implicit/callback',
+  redirect_uri: 'http://localhost:8080/implicit/callback',
   scope: 'openid profile email'
 })
 
