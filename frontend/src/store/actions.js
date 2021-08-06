@@ -1,4 +1,4 @@
-/*import axios from 'axios'
+import axios from 'axios'
 
 export const actions = {
   async getAllTodos({ commit }, data) {
@@ -21,4 +21,4 @@ export const actions = {
     // Todo: delete to-do item
     await dispatch('getAllTodos', data.$auth)
   }
-}*/
+}
