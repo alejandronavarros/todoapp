@@ -5,13 +5,13 @@ import Dashboard from '@/components/Dashboard'
 import Oktavue from '@okta/okta-vue'
 import { OktaAuth } from '@okta/okta-auth-js'
 
-const auth = new OktaAuth({
+const oktaAuth = new OktaAuth({
   issuer: 'https://dev-97100115.okta.com/oauth2/default',
   client_id: '0oa1a54qw9rZaGgvE5d7',
   redirect_uri: window.location.origin + 'implicit/callback',
   scopes: 'openid profile email'
 })
-Vue.use(Oktavue,  { auth })
+Vue.use(Oktavue,  { oktaAuth })
 
 Vue.use(Router)
 
