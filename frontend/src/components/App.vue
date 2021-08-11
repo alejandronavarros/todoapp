@@ -1,22 +1,26 @@
 <template>
   <div class="app-container">
     <div class="app-view">
-      <router-view />
-
-      <template v-if="authenticated">
+      <router-view/>
+      <dashboard />
+      <template v-if="this.authenticated">
         <button v-on:click='logout'>Log out</button>
       </template>
 
       <template v-else>
-        <button v-on:click='$auth.loginRedirect'>Log in</button>
+        <button v-on:click='login'>Log in</button>
       </template>
     </div>
   </div>
 </template>
-
 <script>
-export default {
+  import Dashboard from "./Dashboard.vue"
+  import { defineComponent } from 'vue'
+export default defineComponent({
   name: 'app',
+  components: {
+    Dashboard,
+  },
   data: function () {
     return {
       authenticated: false,
@@ -48,14 +52,17 @@ export default {
       }
     },
     async logout () {
-      await this.$auth.logout()
+      await this.$auth.signOut()
       await this.checkAuthentication()
-
       // Navigate back to home
       this.$router.push({ path: '/' })
+    },
+    async login () {
+      await this.$auth.signInWithRedirect()
+      await this.checkAuthentication()
     }
   }
-}
+})
 </script>
 
 <style>

@@ -10,7 +10,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-
+using Vue3Spa.Services;
+using Okta.Sdk;
+using Okta.Sdk.Configuration;
 namespace backend
 {
     public class Startup
@@ -20,6 +22,7 @@ namespace backend
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            
         }
 
 
@@ -40,16 +43,29 @@ namespace backend
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
-                    .WithOrigins("https://localhost:5001");
+                    .WithOrigins("https://localhost:5001","http://localhost:8080","https://dev-97100115.okta.com/oauth2/default/v1/revoke");
                 });
             });
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            /*services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
   .AddJwtBearer(options =>
                 {
                     options.Authority = Configuration["Okta:Authority"];
                     options.Audience = "api://default";
-                });
+                });*/
+            
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddSingleton<ITodoItemService, OktaTodoItemService>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.Authority = "https://dev-97100115.okta.com/oauth2/default";
+                options.Audience = "api://default";
+            });
+            services.AddSingleton<IOktaClient>(new OktaClient(new OktaClientConfiguration
+            {
+                OktaDomain = "https://dev-97100115.okta.com",
+                Token = Configuration["okta:token"]
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -58,6 +58,10 @@
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[3.1.8, )"
+            },
+            "Okta.Sdk": {
+              "target": "Package",
+              "version": "[5.1.1, )"
             }
           },
           "imports": [
